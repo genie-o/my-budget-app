@@ -39,6 +39,24 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* ── 앱 제목 ── */
+.app-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.03em;
+  text-align: center;
+  padding: 8px 0 4px;
+}
+
+/* ── 푸터 ── */
+.app-footer {
+  text-align: center;
+  font-size: 11px;
+  color: #c4c9d4;
+  padding-top: 4px;
+}
+
 /* ── 잔액 카드 ── */
 .balance-card {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);

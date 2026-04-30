@@ -55,6 +55,8 @@ function App() {
 
   return (
     <div className="container">
+      <h1 className="app-title">편리한가계부</h1>
+
       {/* 잔액 카드 */}
       <div className="balance-card">
         <p className="balance-label">현재 잔액</p>
@@ -169,6 +171,7 @@ function App() {
           </ul>
         )}
       </div>
+      <footer className="app-footer">copyright by Genie</footer>
     </div>
   )
 }
