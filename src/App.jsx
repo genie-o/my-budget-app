@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-const CATEGORIES = ['식비', '교통', '주거', '쇼핑', '월급', '기타']
+const CATEGORIES = ['식비', '교통', '주거', '쇼핑', '월급', '투자', '기타']
 
 const INITIAL_FORM = { type: '지출', amount: '', category: '식비', memo: '' }
 

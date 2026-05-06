@@ -13,18 +13,27 @@ npm run lint      # Run ESLint
 
 ## Architecture
 
-This is a React 19 + Vite 8 single-page application. There is no backend, router, or state management library — all state lives in React component state.
+React 19 + Vite 8 SPA. No backend, no router, no state management library — all state lives in `useState` inside `App.jsx`.
 
 - Entry: [src/main.jsx](src/main.jsx) mounts `<App />` into `#root` inside `StrictMode`
-- App shell: [src/App.jsx](src/App.jsx) is the single top-level component where all features will be built
-- Styles: [src/App.css](src/App.css) for component styles, [src/index.css](src/index.css) for global/reset styles
-- Static assets served from `public/` (e.g. `public/icons.svg` for SVG sprite icons)
+- All logic and UI: [src/App.jsx](src/App.jsx) — single component, no sub-components
+- Styles: [src/App.css](src/App.css) (component styles), [src/index.css](src/index.css) (global reset only)
 
-The ESLint config ([eslint.config.js](eslint.config.js)) enforces React Hooks rules and React Refresh constraints. TypeScript is not configured — the project uses plain `.jsx`/`.js` files.
+### 데이터 모델
+
+`transactions` 배열을 `localStorage` 키 `"transactions"`에 JSON으로 저장. 각 항목 구조:
+
+```js
+{ id: Date.now(), type: '수입'|'지출', amount: Number, category: String, memo: String, date: String }
+```
+
+카테고리 목록: `식비 / 교통 / 주거 / 쇼핑 / 월급 / 투자 / 기타` (`CATEGORIES` 상수로 관리)
 
 ## 프로젝트 목적
 
 한국어 가계부 앱. 수입/지출 기록, 잔액 자동 계산, localStorage로 데이터 저장.
+
+배포 주소: https://my-budget-app.vercel.app
 
 ## 규칙
 
@@ -36,5 +45,5 @@ The ESLint config ([eslint.config.js](eslint.config.js)) enforces React Hooks ru
 ## Notes
 
 - The React Compiler is intentionally not enabled (performance impact on dev/build).
-- SVG icons are referenced via a sprite sheet at `/icons.svg` using `<use href="/icons.svg#icon-name">`.
+- TypeScript is not configured — plain `.jsx`/`.js` files only.
 - If the project grows to need routing or global state, add those libraries explicitly — none are present.
